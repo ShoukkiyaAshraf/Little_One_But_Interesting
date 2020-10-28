@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Speech Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename= 'Styles/style.css')}}">
+</head>
+<body>
+<div id="speechRecognitionContainer">
+    <h2>Welcome to Lyrics Generator</h2>
+    <h4>Upload your File</h4>
+    <form enctype="multipart/form-data" method="post" id="form">
+        <input type="file" name="file" id="file">
+        <br><br>
+        <input type="submit" name="submit" id="submit">
+    </form>
+    {% if transcript == "" %}
+    <div id="speechTranscriptLoading">
+        <h4>Submit your file in wav format</h4>
+        <p>{{transcript}}</p>
+    </div>
+    {% endif %}
+    {% if transcript != "" %}
+    <div id="speechTranscript">
+        <h2>Transcript</h2>
+        <p>{{transcript}}</p>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
